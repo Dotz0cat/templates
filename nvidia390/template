@@ -61,12 +61,12 @@ do_install() {
 	# GLX client libs
 	if [ "${build_option_glvnd}" ]; then
 		# ----- Also provided by the libglvnd package (todo)
-		vinstall libGL.so.1.7.0 755 usr/lib
+#		vinstall libGL.so.1.7.0 755 usr/lib
 #		ln -sf libGL.so.1.7.0 ${DESTDIR}/usr/lib/libGL.so
 #		ln -sf libGL.so.1.7.0 ${DESTDIR}/usr/lib/libGL.so.1
 
-		vinstall libGLX.so.0 755 usr/lib/
-		ln -sf libGLX.so.0 ${DESTDIR}/usr/lib/libGLX.so
+#		vinstall libGLX.so.0 755 usr/lib/
+#		ln -sf libGLX.so.0 ${DESTDIR}/usr/lib/libGLX.so
 		# --------------------------------------------------
 
 		# Required for GLVND option

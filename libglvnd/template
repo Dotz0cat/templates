@@ -1,0 +1,40 @@
+pkgname=libglvnd
+version=1.1.1
+revision=1
+wrksrc="${pkgname}-${version}/"
+build_style="gnu-configure"
+depends="libX11 libXext xorgproto"
+short_desc="The GL vendor-neutral dispatch library"
+maintainer="Dotz0cat <Dotz0cat@gmail.com>"
+license="MIT"
+homepage="https://github.com/NVIDIA/libglvnd"
+disfiles="https://github.com/NVIDIA/archive/v${version}.tar.gz"
+checksum="baca5e1a78b96a112650cdc597be3f856d4754eb73a7bf3f6629e78a7e9f2b5a"
+
+#pre_extract() {
+#	mkdir /builddir/${pkgname}-${version}
+#}
+
+#do_extract() {
+#	cd ${wrksrc}
+#	tar -xvf v${version}.tar.gz
+#}
+
+pre_configure() {
+#	cd /builddir/${pkgname}-${version}
+	./autogen.sh
+}
+
+#do_build() {
+#	vmkdir /builddir/${pkgname}-${version}
+#	cd /builddir/${pkgname}-${version}
+#	./autogen.sh
+#	./configure --prefix=/usr
+#	make
+#}
+
+
+#do_package() {
+#	cd ${pkgname}-${version}
+#	make install DESTDIR=${DESTDIR}
+#}

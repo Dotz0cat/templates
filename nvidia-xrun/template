@@ -1,0 +1,19 @@
+pkgname=nvidia-xrun
+version=0.3
+revision=1
+depends="xorg-server xinit xrandr libGL bbswitch"
+short_desc="Script to run dedicated X server with discrete nvidia graphics"
+mantainer="Dotz0cat <Dotz0cat@gmail.com>"
+license="GPL-2.0-only"
+homepage="https://github.com/Witko/nvidia-xrun"
+archs="x86_64"
+distfiles="https://github.com/Witko/nvidia-xrun/archive/${version}.tar.gz"
+checksum="ec4b85ea6b4a6ba28c8933f3625681c721d0e86d1c7d24040b8e75e859459af9"
+
+do_install () {
+	vinstall nvidia-xorg.conf 644 "/etc/X11/"
+	vinstall  nvidia-xinitrc 644 "/etc/X11/xinit/"
+	vbin nvidia-xrun
+	vmkdir "/etc/X11/xinit/nvidia-xinitrc.d/" 555
+	vmkdir "/etc/X11/nvidia-xorg.conf.d/" 555
+}

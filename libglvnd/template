@@ -1,14 +1,14 @@
 pkgname=libglvnd
 version=1.1.1
 revision=1
-wrksrc="${pkgname}-${version}/"
+wrksrc="${pkgname}-${version}"
 build_style="gnu-configure"
 depends="libX11 libXext xorgproto"
 short_desc="The GL vendor-neutral dispatch library"
 maintainer="Dotz0cat <Dotz0cat@gmail.com>"
 license="MIT"
 homepage="https://github.com/NVIDIA/libglvnd"
-disfiles="https://github.com/NVIDIA/archive/v${version}.tar.gz"
+disfiles="https://github.com/NVIDIA/libglvnd/archive/v${version}.tar.gz"
 checksum="baca5e1a78b96a112650cdc597be3f856d4754eb73a7bf3f6629e78a7e9f2b5a"
 
 #pre_extract() {

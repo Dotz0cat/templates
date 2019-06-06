@@ -93,10 +93,10 @@ do_install() {
 
 	# EGL
 	# ----- Also provided by the libglvnd package (todo)
-	vinstall libOpenGL.so.0 755 usr/lib
-	ln -sf libOpenGL.so.0 ${DESTDIR}/usr/lib/libOpenGL.so
+#	vinstall libOpenGL.so.0 755 usr/lib
+#	ln -sf libOpenGL.so.0 ${DESTDIR}/usr/lib/libOpenGL.so
 
-	vinstall libGLdispatch.so.0 755 usr/lib
+#	vinstall libGLdispatch.so.0 755 usr/lib
 
 #	vinstall libGLESv1_CM_nvidia.so.${version} 755 usr/lib
 #	ln -sf libGLESv1_CM.so.1.2.0 ${DESTDIR}/usr/lib/libGLESv1_CM.so
@@ -118,13 +118,13 @@ do_install() {
 #	ln -sf libEGL.so.1.1.0 ${DESTDIR}/usr/lib/libEGL.so.1
 
 	vinstall libEGL_nvidia.so.${version} 755 usr/lib
-#	ln -sf libEGL_nvidia.so.${version} ${DESTDIR}/usr/lib/libEGL_nvidia.so.0
+	ln -sf libEGL_nvidia.so.${version} ${DESTDIR}/usr/lib/libEGL_nvidia.so.0
 
 	vinstall libGLESv1_CM_nvidia.so.${version} 755 usr/lib
-#	ln -sf libGLESv1_CM_nvidia.so.${version} ${DESTDIR}/usr/lib/libGLESv1_CM_nvidia.so.1
+	ln -sf libGLESv1_CM_nvidia.so.${version} ${DESTDIR}/usr/lib/libGLESv1_CM_nvidia.so.1
 
 	vinstall libGLESv2_nvidia.so.${version} 755 usr/lib
-#	ln -sf libGLESv2_nvidia.so.${version} ${DESTDIR}/usr/lib/libGLESv2_nvidia.so.2
+	ln -sf libGLESv2_nvidia.so.${version} ${DESTDIR}/usr/lib/libGLESv2_nvidia.so.2
 
 	# Thread Local Storage
 	vinstall tls/libnvidia-tls.so.${version} 755 usr/lib

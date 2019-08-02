@@ -34,6 +34,7 @@ if [ "${bulid_option_glvnd}" ]; then
 	#add glvnd option to meson
 	configure_args+=" -Dglvnd=true"
 	depends="libglvnd"
+	makedepends="libglvnd"
 fi
 
 case "$XBPS_TARGET_MACHINE" in

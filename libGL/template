@@ -10,11 +10,11 @@ configure_args="-Dshared-glapi=true -Dgbm=true -Degl=true
  -Dplatforms=x11,drm,wayland,surfaceless -Dllvm=true
  -Db_lto=false"
 hostmakedepends="flex libxml2-python llvm pkg-config
- python3-Mako wayland-protocols wayland-devel"
+ python3-Mako wayland-protocols wayland-devel $(vopt_if glvnd libglvnd)"
 makedepends="elfutils-devel expat-devel libXdamage-devel libXvMC-devel
  libXxf86vm-devel libatomic-devel libdrm-devel libffi-devel libva-devel
  libvdpau-devel libxshmfence-devel ncurses-devel talloc-devel zlib-devel
- wayland-devel wayland-protocols llvm libsensors-devel libXrandr-devel"
+ wayland-devel wayland-protocols llvm libsensors-devel libXrandr-devel $(vopt_if glvnd libglvnd)"
 short_desc="Graphics library similar to SGI's OpenGL"
 maintainer="Juan RP <xtraeme@voidlinux.org>"
 license="MIT, LGPL-2.1-or-later"
@@ -33,8 +33,6 @@ subpackages="libglapi libgbm libEGL libGLES libOSMesa"
 if [ "${bulid_option_glvnd}" ]; then
 	#add glvnd option to meson
 	configure_args+=" -Dglvnd=true"
-	depends="libglvnd"
-	makedepends="libglvnd"
 fi
 
 case "$XBPS_TARGET_MACHINE" in

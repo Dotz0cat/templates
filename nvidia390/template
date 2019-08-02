@@ -244,8 +244,6 @@ nvidia390-gtklibs_package() {
 }
 nvidia390-libs_package() {
 	short_desc="${_desc} - common libraries"
-	provides="libEGL-${version}_${revision} libGL-${version}_${revision} libGLES-${version}_${revision}"
-	replaces="libEGL>=0 libGL>=0 libGLES>=0"
 	pkg_install() {
 		vmove usr/lib
 	}

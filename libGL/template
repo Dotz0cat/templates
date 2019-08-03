@@ -131,7 +131,7 @@ libgbm_package() {
 libEGL_package() {
 	short_desc="Free implementation of the EGL API - runtime"
 	pkg_install() {
-		vmove "usr/lib/libEGL*.so.*"
+		vmove "usr/lib/libEGL_mesa*.so.*"
 	}
 }
 

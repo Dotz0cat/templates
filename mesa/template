@@ -16,6 +16,22 @@ makedepends="elfutils-devel expat-devel libXdamage-devel libXvMC-devel
  libvdpau-devel libxshmfence-devel ncurses-devel talloc-devel zlib-devel
  wayland-devel wayland-protocols llvm libsensors-devel libXrandr-devel 
  libglvnd"
+provides="libGL-${version}_${revision} libEGL-${version}_${revision} 
+ libGLES-${version}_${revision} libglapi-${version}_${revision}
+ libgbm-${version}_${revision} libOSMesa-${version}_${revision}
+ MesaLib-devel-${version}_${revision} libxatracker-${version}_${revision}
+ mesa-ati-dri-${version}_${revision} mesa-intel-dri-${version}_${revision}
+ mesa-nouveau-dri-${version}_${revision} mesa-vmwgfx-dri-${version}_${revision}
+ mesa-vc4-dri-${version}_${revision} mesa-opencl-${version}_${revision}
+ mesa-tegra-dri-${version}_${revision}"
+replaces="libGL>=0 libEGL>=0
+ libGLES>=0 libglapi>=0
+ libgbm>=0 libOSMesa>=0
+ MesaLib-devel>=0 libxatracker>=0
+ mesa-ati-dri>=0 mesa-intel-dri>=0
+ mesa-nouveau-dri>=0 mesa-vmwgfx-dri>=0
+ mesa-vc4-dri>=0 mesa-opencl>=0
+ mesa-tegra-dri>=0"
 short_desc="Graphics library similar to SGI's OpenGL"
 maintainer="Juan RP <xtraeme@voidlinux.org>, Dotz0cat <Dotz0cat@gmail.com>"
 license="MIT, LGPL-2.1-or-later"
@@ -23,9 +39,6 @@ homepage="https://www.mesa3d.org/"
 changelog="https://www.mesa3d.org/relnotes/${version}.html"
 distfiles="https://mesa.freedesktop.org/archive/mesa-${version}.tar.xz"
 checksum=845460b2225d15c15d4a9743dec798ff0b7396b533011d43e774e67f7825b7e0
-
-# Set subpackages manually to set proper rdeps in 32bit pkgs.
-subpackages="libglapi libgbm libEGL libGLES libOSMesa"
 
 case "$XBPS_TARGET_MACHINE" in
 i686*|x86_64*)
@@ -78,9 +91,6 @@ case "$XBPS_TARGET_MACHINE" in
 		CXXFLAGS+=" -DMISSING_64BIT_ATOMICS=1"
 		;;
 esac
-
-# -devel must be the last one for proper order.
-subpackages+=" MesaLib-devel"
 
 case "$XBPS_TARGET_MACHINE" in
 	i686) configure_args+=" -Ddri-drivers-path=/usr/lib32/xorg/modules/drivers";;
